@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
-import {
-  CONTACT_SERVICE_OPTIONS,
-  CONTACT_BUDGET_OPTIONS,
-  SOCIAL_LINKS,
-} from "@/data/constants";
+import { CONTACT_SERVICE_OPTIONS, CONTACT_BUDGET_OPTIONS } from "@/data/constants";
+import type { SocialLinks } from "@/lib/social-links";
 
-export function Contact() {
+export function Contact({ socialLinks }: { socialLinks: SocialLinks }) {
   const [state, setState] = useState<{
     success?: boolean;
     error?: string;
@@ -28,13 +25,13 @@ export function Contact() {
       <section id="contact" className="scroll-mt-24 border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
-            Let&apos;s get started.
+            Thank you
           </h2>
           <p className="mt-8 text-lg text-[var(--text)]">
-            We&apos;ve got it. Expect to hear from us within 24 hours.
+            We&apos;ve received your enquiry and will be in touch within 24 hours.
           </p>
           <p className="mt-2 text-sm text-[var(--text-muted)]">
-            Check your email (and WhatsApp if you shared it).
+            We&apos;ll respond via email or WhatsApp, depending on how you prefer to be reached.
           </p>
         </div>
       </section>
@@ -45,10 +42,10 @@ export function Contact() {
     <section id="contact" className="scroll-mt-24 border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-xl">
         <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
-          Let&apos;s get started.
+          Get in touch
         </h2>
         <p className="mt-4 text-[var(--text-muted)]">
-          Tell us what you&apos;re working on. We&apos;ll respond within 24 hours.
+          Share your project details below. We&apos;ll respond within 24 hours.
         </p>
         <form
           onSubmit={async (e) => {
@@ -59,7 +56,7 @@ export function Contact() {
         >
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-[var(--text)]">
-              Your Name <span className="text-violet-600">*</span>
+              Full name <span className="text-violet-600">*</span>
             </label>
             <input
               id="name"
@@ -67,12 +64,12 @@ export function Contact() {
               type="text"
               required
               className="mt-1 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20"
-              placeholder="Your name"
+              placeholder="e.g. Priya Sharma"
             />
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-[var(--text)]">
-              Email <span className="text-violet-600">*</span>
+              Email address <span className="text-violet-600">*</span>
             </label>
             <input
               id="email"
@@ -80,12 +77,12 @@ export function Contact() {
               type="email"
               required
               className="mt-1 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20"
-              placeholder="you@example.com"
+              placeholder="name@company.com"
             />
           </div>
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-[var(--text)]">
-              WhatsApp Number
+              WhatsApp number <span className="text-[var(--text-muted)] font-normal">(optional)</span>
             </label>
             <input
               id="phone"
@@ -95,12 +92,12 @@ export function Contact() {
               placeholder="+91 98765 43210"
             />
             <p className="mt-1 text-xs text-[var(--text-muted)]">
-              Fastest way to reach you
+              We may use this for a quicker response.
             </p>
           </div>
           <div>
             <label htmlFor="serviceType" className="block text-sm font-medium text-[var(--text)]">
-              What are you looking for?
+              Service of interest
             </label>
             <select
               id="serviceType"
@@ -116,19 +113,19 @@ export function Contact() {
           </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-[var(--text)]">
-              Anything else you&apos;d like to share?
+              Project details
             </label>
             <textarea
               id="message"
               name="message"
               rows={4}
               className="mt-1 w-full rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20"
-              placeholder="What's the project about? Any timeline in mind? Just give us a rough idea."
+              placeholder="Briefly describe your project, goals, and preferred timeline. All details are confidential."
             />
           </div>
           <div>
             <label htmlFor="budgetRange" className="block text-sm font-medium text-[var(--text)]">
-              Budget
+              Budget range
             </label>
             <select
               id="budgetRange"
@@ -148,39 +145,39 @@ export function Contact() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-6 py-4 font-semibold text-white shadow-md shadow-violet-900/20 transition hover:from-violet-900 hover:to-violet-700 disabled:opacity-50"
+            className="w-full rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-6 py-4 font-semibold text-white shadow-md shadow-violet-900/20 transition hover:from-violet-900 hover:to-violet-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 disabled:opacity-50"
           >
-            {isPending ? "Sending…" : "Send →"}
+            {isPending ? "Submitting…" : "Submit enquiry"}
           </button>
         </form>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--text-muted)]">
           <a
-            href={SOCIAL_LINKS.whatsapp}
+            href={socialLinks.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium hover:text-violet-600"
+            className="font-medium transition hover:text-violet-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 rounded-sm"
           >
             WhatsApp
           </a>
           <a
-            href={SOCIAL_LINKS.email}
-            className="font-medium hover:text-violet-600"
+            href={socialLinks.email}
+            className="font-medium transition hover:text-violet-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 rounded-sm"
           >
-            hello@makrr.in
+            {socialLinks.email.replace(/^mailto:/i, "") || "Email"}
           </a>
           <a
-            href={SOCIAL_LINKS.instagram}
+            href={socialLinks.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium hover:text-violet-600"
+            className="font-medium transition hover:text-violet-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 rounded-sm"
           >
-            @makrr.in
+            Instagram
           </a>
           <a
-            href={SOCIAL_LINKS.linkedin}
+            href={socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium hover:text-violet-600"
+            className="font-medium transition hover:text-violet-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 rounded-sm"
           >
             LinkedIn
           </a>

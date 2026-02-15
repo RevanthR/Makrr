@@ -27,11 +27,11 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-white/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-[60] w-full border-b border-[var(--border)] bg-white/80 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link
-            href="#"
-            className="font-heading text-xl font-semibold tracking-tight text-[var(--text)]"
+            href="/"
+            className="font-heading text-xl font-semibold tracking-tight text-[var(--text)] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 rounded-sm"
             onClick={closeMenu}
           >
             Makrr
@@ -81,9 +81,9 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile overlay: above content, below hamburger (z-[60]) */}
+      {/* Mobile overlay: below header so hamburger/close stays tappable */}
       <div
-        className={`fixed inset-0 z-[55] bg-white transition-opacity duration-200 md:hidden ${
+        className={`fixed inset-0 z-[50] bg-white transition-opacity duration-200 md:hidden ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         aria-hidden={!mobileOpen}

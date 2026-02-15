@@ -4,9 +4,10 @@ import { useState } from "react";
 import { SubmissionsTab } from "./SubmissionsTab";
 import { ProjectsTab } from "./ProjectsTab";
 import { TestimonialsTab } from "./TestimonialsTab";
-import type { Contact, Project, Testimonial } from "@/lib/db/schema";
+import { SettingsTab } from "./SettingsTab";
+import type { Contact, Project, Testimonial, SiteSettings } from "@/lib/db/schema";
 
-type Tab = "submissions" | "projects" | "testimonials";
+type Tab = "submissions" | "projects" | "testimonials" | "settings";
 
 type Serialized<T> = {
   [K in keyof T]: T[K] extends Date ? string : T[K];
@@ -16,10 +17,12 @@ export function AdminDashboard({
   initialContacts,
   initialProjects,
   initialTestimonials,
+  initialSettings,
 }: {
   initialContacts: Serialized<Contact>[];
   initialProjects: Serialized<Project>[];
   initialTestimonials: Serialized<Testimonial>[];
+  initialSettings: Serialized<SiteSettings> | null;
 }) {
   const [tab, setTab] = useState<Tab>("submissions");
   const [contacts, setContacts] = useState(initialContacts);
@@ -62,6 +65,17 @@ export function AdminDashboard({
         >
           Testimonials
         </button>
+        <button
+          type="button"
+          onClick={() => setTab("settings")}
+          className={`border-b-2 px-4 py-2 text-sm font-medium ${
+            tab === "settings"
+              ? "border-gray-900 text-gray-900"
+              : "border-transparent text-gray-600 hover:text-gray-900"
+          }`}
+        >
+          Settings
+        </button>
       </div>
       {tab === "submissions" && (
         <SubmissionsTab
@@ -81,6 +95,7 @@ export function AdminDashboard({
           setTestimonials={setTestimonials}
         />
       )}
+      {tab === "settings" && <SettingsTab initial={initialSettings} />}
     </div>
   );
 }

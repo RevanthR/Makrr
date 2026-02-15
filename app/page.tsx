@@ -1,3 +1,5 @@
+import { getSiteSettings } from "@/lib/db/queries";
+import { getSocialLinks } from "@/lib/social-links";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
@@ -11,7 +13,10 @@ import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
-export default function Home() {
+export default async function Home() {
+  const settings = await getSiteSettings().catch(() => null);
+  const socialLinks = getSocialLinks(settings);
+
   return (
     <>
       <noscript>
@@ -32,9 +37,9 @@ export default function Home() {
         <About />
         <Testimonials />
         <FAQ />
-        <Contact />
+        <Contact socialLinks={socialLinks} />
       </main>
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </>
   );
 }

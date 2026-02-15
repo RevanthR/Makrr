@@ -1,6 +1,4 @@
-import { getContacts } from "@/lib/db/queries";
-import { getAllProjects } from "@/lib/db/queries";
-import { getAllTestimonials } from "@/lib/db/queries";
+import { getContacts, getAllProjects, getAllTestimonials, getSiteSettings } from "@/lib/db/queries";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 import { logoutAction } from "@/app/actions/admin-auth";
 import Link from "next/link";
@@ -11,11 +9,13 @@ export default async function AdminPage() {
   let contacts: Awaited<ReturnType<typeof getContacts>> = [];
   let projects: Awaited<ReturnType<typeof getAllProjects>> = [];
   let testimonials: Awaited<ReturnType<typeof getAllTestimonials>> = [];
+  let settings: Awaited<ReturnType<typeof getSiteSettings>> | null = null;
   try {
-    [contacts, projects, testimonials] = await Promise.all([
+    [contacts, projects, testimonials, settings] = await Promise.all([
       getContacts(),
       getAllProjects(),
       getAllTestimonials(),
+      getSiteSettings(),
     ]);
   } catch (e) {
     console.error("Admin data load failed:", e);
@@ -39,6 +39,7 @@ export default async function AdminPage() {
         initialContacts={contacts}
         initialProjects={projects}
         initialTestimonials={testimonials}
+        initialSettings={settings}
       />
     </div>
   );

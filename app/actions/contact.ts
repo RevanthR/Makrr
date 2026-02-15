@@ -16,14 +16,14 @@ export async function submitContactForm(formData: FormData): Promise<ContactForm
   const message = (formData.get("message") as string) || undefined;
 
   if (!name?.trim()) {
-    return { error: "Your name is required." };
+    return { error: "Please enter your full name." };
   }
   if (!email?.trim()) {
-    return { error: "Email is required." };
+    return { error: "Please enter your email address." };
   }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email.trim())) {
-    return { error: "Please enter a valid email." };
+    return { error: "Please enter a valid email address." };
   }
 
   try {
@@ -38,6 +38,6 @@ export async function submitContactForm(formData: FormData): Promise<ContactForm
     return { success: true };
   } catch (e) {
     console.error("Contact form error:", e);
-    return { error: "Something went wrong. Please try again or message us on WhatsApp." };
+    return { error: "We couldn't process your enquiry. Please try again or contact us directly on WhatsApp." };
   }
 }

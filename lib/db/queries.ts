@@ -1,6 +1,6 @@
 import { eq, desc, asc } from "drizzle-orm";
 import { getDb } from "./index";
-import { contacts, projects, testimonials } from "./schema";
+import { contacts, projects, testimonials, siteSettings } from "./schema";
 import type { NewContact, NewProject, NewTestimonial } from "./schema";
 
 export async function createContact(data: NewContact) {
@@ -125,4 +125,34 @@ export async function updateTestimonial(
 export async function deleteTestimonial(id: number) {
   const db = getDb();
   await db.delete(testimonials).where(eq(testimonials.id, id));
+}
+
+export async function getSiteSettings(): Promise<typeof siteSettings.$inferSelect | null> {
+  const db = getDb();
+  const [row] = await db.select().from(siteSettings).limit(1);
+  return row ?? null;
+}
+
+export async function updateSiteSettings(data: {
+  whatsappNumber?: string | null;
+  whatsappMessage?: string | null;
+  email?: string | null;
+  instagramUrl?: string | null;
+  linkedinUrl?: string | null;
+}) {
+  const db = getDb();
+  const existing = await getSiteSettings();
+  if (existing) {
+    const [row] = await db
+      .update(siteSettings)
+      .set({ ...data, updatedAt: new Date() })
+      .where(eq(siteSettings.id, existing.id))
+      .returning();
+    return row;
+  }
+  const [row] = await db
+    .insert(siteSettings)
+    .values({ ...data, updatedAt: new Date() })
+    .returning();
+  return row;
 }

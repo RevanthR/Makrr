@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { getDb } from "../lib/db";
-import { projects, testimonials } from "../lib/db/schema";
+import { projects, testimonials, siteSettings } from "../lib/db/schema";
 
 const seedProjects = [
   {
@@ -79,12 +79,25 @@ const seedTestimonials = [
   },
 ];
 
+const defaultSiteSettings = {
+  whatsappNumber: "919876543210",
+  whatsappMessage: "Hi, I'd like to discuss a project with Makrr.",
+  email: "hello@makrr.in",
+  instagramUrl: "https://instagram.com/makrr.in",
+  linkedinUrl: "https://linkedin.com/company/makrr",
+};
+
 async function seed() {
   const db = getDb();
   console.log("Seeding projects...");
   await db.insert(projects).values(seedProjects).onConflictDoNothing();
   console.log("Seeding testimonials...");
   await db.insert(testimonials).values(seedTestimonials).onConflictDoNothing();
+  const [existing] = await db.select().from(siteSettings).limit(1);
+  if (!existing) {
+    console.log("Seeding site settings...");
+    await db.insert(siteSettings).values(defaultSiteSettings);
+  }
   console.log("Seed complete.");
 }
 

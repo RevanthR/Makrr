@@ -195,12 +195,12 @@ export const ABOUT_COPY = {
 } as const;
 
 export const CONTACT_SERVICE_OPTIONS = [
-  "A Website",
-  "A Web App",
-  "AI Agents / Bot",
-  "Content & Design",
-  "A Package",
-  "Not sure yet",
+  "Website",
+  "Web application",
+  "AI agents & automation",
+  "Content & design",
+  "Package (bundle)",
+  "Exploring options",
 ] as const;
 
 export const CONTACT_BUDGET_OPTIONS = [

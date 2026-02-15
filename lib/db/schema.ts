@@ -49,9 +49,21 @@ export const testimonials = pgTable("testimonials", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+export const siteSettings = pgTable("site_settings", {
+  id: serial("id").primaryKey(),
+  whatsappNumber: varchar("whatsapp_number", { length: 30 }),
+  whatsappMessage: text("whatsapp_message"),
+  email: varchar("email", { length: 255 }),
+  instagramUrl: varchar("instagram_url", { length: 500 }),
+  linkedinUrl: varchar("linkedin_url", { length: 500 }),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
 export type Contact = typeof contacts.$inferSelect;
 export type NewContact = typeof contacts.$inferInsert;
 export type Project = typeof projects.$inferSelect;
 export type NewProject = typeof projects.$inferInsert;
 export type Testimonial = typeof testimonials.$inferSelect;
 export type NewTestimonial = typeof testimonials.$inferInsert;
+export type SiteSettings = typeof siteSettings.$inferSelect;
+export type NewSiteSettings = typeof siteSettings.$inferInsert;
