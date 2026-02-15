@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- M shape: left leg, peak, valley, peak, right leg -->
+  <path d="M7 24V8l5 8 5-8v16" stroke="#7c3aed" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Accent dot (the "rr" / maker mark) -->
+  <circle cx="25" cy="22" r="2.5" fill="#7c3aed"/>
+</svg>

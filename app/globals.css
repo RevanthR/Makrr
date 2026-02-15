@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light, bright base (Plane/Jira/Flowise-inspired) */
+  --bg: #f8fafc;
+  --bg-elevated: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  /* Accent: purple gradient with complementary amber */
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.1);
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #d97706 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #6d28d9 0%, #9333ea 50%, #b45309 100%);
+  --accent-warm: #f59e0b;
+  --accent-warm-soft: rgba(245, 158, 11, 0.12);
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  /* Hero gradient stops (purple–amber tint) */
+  --hero-from: #f5f3ff;
+  --hero-via: #fef3c7;
+  --hero-to: #faf5ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
