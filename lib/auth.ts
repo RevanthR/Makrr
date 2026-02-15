@@ -1,7 +1,12 @@
 import { cookies } from "next/headers";
 
 const ADMIN_SESSION_COOKIE = "makrr_admin_session";
-const SESSION_SECRET = "makrr-admin-2026";
+
+function getSessionSecret(): string {
+  const secret = process.env.ADMIN_SESSION_SECRET;
+  if (!secret) throw new Error("ADMIN_SESSION_SECRET is not set");
+  return secret;
+}
 
 export async function getSessionToken(): Promise<string | undefined> {
   const cookieStore = await cookies();
@@ -11,12 +16,16 @@ export async function getSessionToken(): Promise<string | undefined> {
 export async function isAuthenticated(): Promise<boolean> {
   const token = await getSessionToken();
   if (!token) return false;
-  return token === SESSION_SECRET;
+  try {
+    return token === getSessionSecret();
+  } catch {
+    return false;
+  }
 }
 
 export async function setSession() {
   const cookieStore = await cookies();
-  cookieStore.set(ADMIN_SESSION_COOKIE, SESSION_SECRET, {
+  cookieStore.set(ADMIN_SESSION_COOKIE, getSessionSecret(), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",

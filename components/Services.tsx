@@ -1,4 +1,5 @@
 import { SERVICES } from "@/data/constants";
+import { ServiceIcon } from "@/components/icons/ServiceIcons";
 
 const PILL_COLORS = [
   { bg: "bg-indigo-100", text: "text-indigo-700" },
@@ -24,8 +25,8 @@ export function Services() {
                 key={service.title}
                 className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm transition hover:border-violet-500/30 hover:shadow-md"
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 font-heading text-lg font-semibold text-violet-700">
-                  {i + 1}
+                <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${pillStyle.bg} ${pillStyle.text}`}>
+                  <ServiceIcon title={service.title} />
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-[var(--text)]">
                   {service.title}
