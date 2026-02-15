@@ -150,7 +150,7 @@ export const PROCESS_STEPS = [
   {
     title: "It goes live. We stick around.",
     description:
-      "We handle deployment and give you 2 weeks of free support after launch.",
+      "We handle deployment and give you 6 months of free support after launch.",
   },
 ] as const;
 
@@ -191,7 +191,7 @@ export const ABOUT_COPY = {
   paragraph2:
     "We keep the team small on purpose. It means every project gets our full attention, and you always know who's working on your stuff. We're fast because we're focused, and we're good because we care about the details.",
   founderPlaceholder:
-    "Founded by [your background — e.g., alumni of ISB and IIT, with X years in tech] — we bring real experience to every project, not just templates.",
+    "Founded by alumni from ISB with over 10 years in tech — we bring real experience to every project, not just templates.",
 } as const;
 
 export const CONTACT_SERVICE_OPTIONS = [

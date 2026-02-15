@@ -2,19 +2,7 @@
 
 import Link from "next/link";
 
-function getBookingMonths() {
-  const now = new Date();
-  const current = now.toLocaleString("en-IN", { month: "long" });
-  const next = new Date(now.getFullYear(), now.getMonth() + 1).toLocaleString(
-    "en-IN",
-    { month: "long" }
-  );
-  return `${current} and ${next}`;
-}
-
 export function Hero() {
-  const bookingMonths = getBookingMonths();
-
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24">
       {/* Full-screen gradient mesh background */}
@@ -61,9 +49,6 @@ export function Hero() {
             See our work ↓
           </Link>
         </div>
-        <p className="mt-6 text-sm text-[var(--text-muted)]" suppressHydrationWarning>
-          Currently booking projects for {bookingMonths}.
-        </p>
         <button
           type="button"
           onClick={() => {
