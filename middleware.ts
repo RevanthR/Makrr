@@ -6,8 +6,13 @@ const ADMIN_SESSION_COOKIE = "makrr_admin_session";
 export function middleware(request: NextRequest) {
   const sessionSecret = process.env.ADMIN_SESSION_SECRET;
   if (!sessionSecret) {
-    if (request.nextUrl.pathname.startsWith("/admin"))
+    // Don't redirect /admin/login to itself (would cause redirect loop)
+    if (
+      request.nextUrl.pathname.startsWith("/admin") &&
+      request.nextUrl.pathname !== "/admin/login"
+    ) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
+    }
     return NextResponse.next();
   }
   if (request.nextUrl.pathname === "/admin/login") {
