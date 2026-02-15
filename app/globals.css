@@ -9,21 +9,17 @@
   --text: #0f172a;
   --text-muted: #64748b;
   --text-subtle: #94a3b8;
-  /* Accent: purple gradient with complementary amber */
-  --accent: #7c3aed;
-  --accent-hover: #6d28d9;
-  --accent-soft: rgba(124, 58, 237, 0.1);
-  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #d97706 100%);
-  --accent-gradient-hover: linear-gradient(135deg, #6d28d9 0%, #9333ea 50%, #b45309 100%);
-  --accent-warm: #f59e0b;
-  --accent-warm-soft: rgba(245, 158, 11, 0.12);
+  /* Accent: refined violet (monochromatic) */
+  --accent: #5b21b6;
+  --accent-hover: #4c1d95;
+  --accent-soft: rgba(91, 33, 182, 0.08);
   --card: #ffffff;
   --border: #e2e8f0;
   --border-strong: #cbd5e1;
-  /* Hero gradient stops (purple–amber tint) */
-  --hero-from: #f5f3ff;
-  --hero-via: #fef3c7;
-  --hero-to: #faf5ff;
+  /* Hero: very subtle cool tint */
+  --hero-from: #fafbff;
+  --hero-via: #f8fafc;
+  --hero-to: #f5f3ff;
 }
 
 html {

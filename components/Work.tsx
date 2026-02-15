@@ -9,7 +9,7 @@ const GRADIENT_MAP: Record<string, string> = {
 };
 
 function getGradientClass(colors: string | null) {
-  if (!colors || !GRADIENT_MAP[colors]) return "from-violet-100 to-amber-100";
+  if (!colors || !GRADIENT_MAP[colors]) return "from-violet-100 to-violet-50";
   return GRADIENT_MAP[colors];
 }
 

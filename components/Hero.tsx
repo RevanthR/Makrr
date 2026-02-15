@@ -50,7 +50,7 @@ export function Hero() {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="#contact"
-            className="w-full rounded-full bg-gradient-to-br from-violet-600 via-purple-500 to-amber-500 px-8 py-4 text-center font-semibold text-white shadow-lg shadow-violet-500/30 transition hover:opacity-95 hover:shadow-violet-500/40 sm:w-auto"
+            className="w-full rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-8 py-4 text-center font-semibold text-white shadow-md shadow-violet-900/20 transition hover:from-violet-900 hover:to-violet-700 sm:w-auto"
           >
             Start a Project →
           </Link>

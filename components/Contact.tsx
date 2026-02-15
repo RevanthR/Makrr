@@ -148,7 +148,7 @@ export function Contact() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full rounded-full bg-gradient-to-r from-violet-600 to-amber-500 px-6 py-4 font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:opacity-95 disabled:opacity-50"
+            className="w-full rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-6 py-4 font-semibold text-white shadow-md shadow-violet-900/20 transition hover:from-violet-900 hover:to-violet-700 disabled:opacity-50"
           >
             {isPending ? "Sending…" : "Send →"}
           </button>

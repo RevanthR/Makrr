@@ -49,7 +49,7 @@ export function Navbar() {
             ))}
             <Link
               href="#contact"
-              className="rounded-full bg-gradient-to-r from-violet-600 to-amber-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:opacity-95"
+              className="rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:from-violet-900 hover:to-violet-700"
             >
               Start a Project
             </Link>
@@ -101,7 +101,7 @@ export function Navbar() {
           ))}
           <Link
             href="#contact"
-            className="rounded-full bg-gradient-to-r from-violet-600 to-amber-500 px-8 py-4 text-lg font-semibold text-white shadow-sm"
+            className="rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-8 py-4 text-lg font-semibold text-white shadow-sm"
             onClick={closeMenu}
           >
             Start a Project

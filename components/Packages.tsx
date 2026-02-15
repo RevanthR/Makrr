@@ -40,7 +40,7 @@ export function Packages() {
               <p className="mt-2 text-sm text-[var(--text)]">{pkg.tagline}</p>
               <Link
                 href="#contact"
-                className="mt-6 inline-block rounded-full bg-gradient-to-r from-violet-600 to-amber-500 px-5 py-2.5 text-center text-sm font-semibold text-white transition hover:opacity-95"
+                className="mt-6 inline-block rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-5 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition hover:from-violet-900 hover:to-violet-700"
               >
                 {pkg.cta}
               </Link>
