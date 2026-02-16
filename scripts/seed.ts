@@ -53,6 +53,36 @@ const seedProjects = [
     gradientColors: "from-violet-900/30 to-indigo-700/20",
     displayOrder: 4,
   },
+  {
+    projectName: "Wallchemy",
+    clientName: "Wallchemy",
+    projectType: "Website",
+    description:
+      "Wallchemy.in needed a clean, visual site to showcase their wall art and interior decor range. We built a fast, image-led site that reflects their brand and drives enquiries.",
+    resultMetric: "Enquiries up and site loads in under 2 seconds",
+    gradientColors: "from-stone-800/30 to-amber-900/20",
+    displayOrder: 5,
+  },
+  {
+    projectName: "The Interior OS",
+    clientName: "interiorOS.com",
+    projectType: "Website",
+    description:
+      "The Interior OS wanted a professional web presence that matched their design-led offering. We delivered a modern site with clear service pages and a smooth contact flow.",
+    resultMetric: "Clean launch and positive feedback from clients",
+    gradientColors: "from-slate-700/30 to-slate-600/20",
+    displayOrder: 6,
+  },
+  {
+    projectName: "Thought Studios",
+    clientName: "thoughtstudios.co",
+    projectType: "Website",
+    description:
+      "Thought Studios needed a portfolio site that felt as considered as their creative work. We built a minimal, responsive site that puts their projects front and centre.",
+    resultMetric: "A site they're proud to send to clients",
+    gradientColors: "from-neutral-800/30 to-zinc-700/20",
+    displayOrder: 7,
+  },
 ];
 
 const seedTestimonials = [
@@ -76,6 +106,27 @@ const seedTestimonials = [
     quote:
       "We came to them with a rough idea for an internal tool. Two weeks later, we had a working product. That kind of turnaround is rare.",
     displayOrder: 2,
+  },
+  {
+    clientName: "Kavya R.",
+    clientTitle: "Wallchemy.in",
+    quote:
+      "We wanted a site that felt as good as our products. Makrr got it — clean, quick, and easy to update. Enquiries have been much better since we went live.",
+    displayOrder: 3,
+  },
+  {
+    clientName: "Aditya S.",
+    clientTitle: "The Interior OS",
+    quote:
+      "Professional and no fuss. They understood our aesthetic and delivered a site we're happy to share with clients. Would work with them again.",
+    displayOrder: 4,
+  },
+  {
+    clientName: "Priya N.",
+    clientTitle: "Thought Studios",
+    quote:
+      "Our new site actually represents our work properly. Fast to load, simple to use, and we get compliments on it. Exactly what we needed.",
+    displayOrder: 5,
   },
 ];
 

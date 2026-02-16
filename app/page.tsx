@@ -4,13 +4,12 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { Packages } from "@/components/Packages";
+import { Contact } from "@/components/Contact";
 import { Work } from "@/components/Work";
-import { Pricing } from "@/components/Pricing";
 import { HowItWorks } from "@/components/HowItWorks";
 import { About } from "@/components/About";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
-import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export default async function Home() {
@@ -31,13 +30,12 @@ export default async function Home() {
         <Hero />
         <Services />
         <Packages />
+        <Contact socialLinks={socialLinks} />
         <Work />
-        <Pricing />
         <HowItWorks />
         <About />
         <Testimonials />
         <FAQ />
-        <Contact socialLinks={socialLinks} />
       </main>
       <Footer socialLinks={socialLinks} />
     </>
