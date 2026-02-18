@@ -1,4 +1,8 @@
-import { getPublishedProjects } from "@/lib/db/queries";
+"use client";
+
+import type { Project } from "@/lib/db/schema";
+import { MotionIn } from "@/components/MotionIn";
+import { motion } from "framer-motion";
 
 const GRADIENT_MAP: Record<string, string> = {
   "from-amber-900/30 to-amber-700/20": "from-amber-900/30 to-amber-700/20",
@@ -6,6 +10,9 @@ const GRADIENT_MAP: Record<string, string> = {
   "from-slate-700/30 to-slate-500/20": "from-slate-700/30 to-slate-500/20",
   "from-orange-900/30 to-amber-800/20": "from-orange-900/30 to-amber-800/20",
   "from-violet-900/30 to-indigo-700/20": "from-violet-900/30 to-indigo-700/20",
+  "from-stone-800/30 to-amber-900/20": "from-stone-800/30 to-amber-900/20",
+  "from-slate-700/30 to-slate-600/20": "from-slate-700/30 to-slate-600/20",
+  "from-neutral-800/30 to-zinc-700/20": "from-neutral-800/30 to-zinc-700/20",
 };
 
 function getGradientClass(colors: string | null) {
@@ -13,25 +20,25 @@ function getGradientClass(colors: string | null) {
   return GRADIENT_MAP[colors];
 }
 
-export async function Work() {
-  let projects: Awaited<ReturnType<typeof getPublishedProjects>> = [];
-  try {
-    projects = await getPublishedProjects();
-  } catch {
-    // DB not configured or unavailable at build/runtime
-  }
-
+export function Work({
+  projects = [],
+}: {
+  projects: Project[];
+}) {
   return (
     <section id="work" className="scroll-mt-24 border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
-          Recent work
-        </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <MotionIn variant="up">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
+            Recent work
+          </h2>
+        </MotionIn>
+        <MotionIn stagger={0.09} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <article
+            <motion.article
               key={project.id}
-              className="group overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm transition hover:shadow-md"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="group overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm transition-shadow hover:shadow-lg"
             >
               <div
                 className={`relative flex h-40 items-end overflow-hidden bg-gradient-to-br p-4 ${getGradientClass(project.gradientColors)}`}
@@ -63,13 +70,15 @@ export async function Work() {
                   </p>
                 )}
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
-        <p className="mt-8 text-center text-sm text-[var(--text-muted)]">
-          We&apos;re adding new projects regularly. If you want to see more, just
-          ask.
-        </p>
+        </MotionIn>
+        <MotionIn>
+          <p className="mt-8 text-center text-sm text-[var(--text-muted)]">
+            We&apos;re adding new projects regularly. If you want to see more, just
+            ask.
+          </p>
+        </MotionIn>
       </div>
     </section>
   );

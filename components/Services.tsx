@@ -1,5 +1,9 @@
+"use client";
+
 import { SERVICES } from "@/data/constants";
 import { ServiceIcon } from "@/components/icons/ServiceIcons";
+import { MotionIn } from "@/components/MotionIn";
+import { motion } from "framer-motion";
 
 const PILL_COLORS = [
   { bg: "bg-indigo-100", text: "text-indigo-700" },
@@ -14,16 +18,19 @@ export function Services() {
   return (
     <section id="services" className="scroll-mt-24 border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
-          Everything you need to look great online.
-        </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <MotionIn variant="up">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
+            Everything you need to look great online.
+          </h2>
+        </MotionIn>
+        <MotionIn stagger={0.08} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => {
             const pillStyle = PILL_COLORS[i % PILL_COLORS.length];
             return (
-              <article
+              <motion.article
                 key={service.title}
-                className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm transition hover:border-violet-500/30 hover:shadow-md"
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm transition-shadow hover:border-violet-500/30 hover:shadow-lg"
               >
                 <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${pillStyle.bg} ${pillStyle.text}`}>
                   <ServiceIcon title={service.title} />
@@ -44,10 +51,10 @@ export function Services() {
                     </span>
                   ))}
                 </div>
-              </article>
+              </motion.article>
             );
           })}
-        </div>
+        </MotionIn>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["postgres"],
   images: {
     remotePatterns: [
       {
@@ -9,6 +10,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  async redirects() {
+    return [
+      { source: "/favicon.ico", destination: "/icon.svg", permanent: false },
+      { source: "/apple-touch-icon.png", destination: "/icon.svg", permanent: false },
+      { source: "/apple-touch-icon-precomposed.png", destination: "/icon.svg", permanent: false },
+    ];
   },
 };
 

@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
 import { put } from "@vercel/blob";
 import {
   createTestimonial as dbCreateTestimonial,
@@ -29,6 +30,7 @@ export async function createTestimonial(formData: FormData) {
     isPublished,
     displayOrder,
   });
+  revalidateTag("testimonials");
 }
 
 export async function updateTestimonial(id: number, formData: FormData) {
@@ -61,8 +63,10 @@ export async function updateTestimonial(id: number, formData: FormData) {
   };
   if (avatarUrl !== undefined) data.avatarUrl = avatarUrl;
   await dbUpdateTestimonial(id, data);
+  revalidateTag("testimonials");
 }
 
 export async function deleteTestimonial(id: number) {
   await dbDeleteTestimonial(id);
+  revalidateTag("testimonials");
 }

@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
 import { updateSiteSettings } from "@/lib/db/queries";
 
 export type SettingsFormState = { success?: boolean; error?: string };
@@ -19,6 +20,7 @@ export async function updateSettingsAction(formData: FormData): Promise<Settings
       instagramUrl,
       linkedinUrl,
     });
+    revalidateTag("site-settings");
     return { success: true };
   } catch (e) {
     console.error("Settings update error:", e);

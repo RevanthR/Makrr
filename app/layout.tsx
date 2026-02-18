@@ -15,19 +15,23 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Makrr — Websites, apps, and content. Built fast, built right.",
+  title: "Makrr | Websites, apps, and content. Built fast, built right.",
   description:
-    "Makrr is a digital studio in Hyderabad. We help businesses and creators go from idea to launch — websites, web apps, AI agents, and content.",
+    "Makrr is a digital studio in Hyderabad. We help businesses and creators go from idea to launch: websites, web apps, AI agents, and content.",
   metadataBase: new URL("https://makrr.in"),
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
-    title: "Makrr — We make it happen.",
+    title: "Makrr | We make it happen.",
     description:
-      "A digital studio in Hyderabad. Websites, web apps, AI agents, and content — built fast, built right.",
+      "A digital studio in Hyderabad. Websites, web apps, AI agents, and content. Built fast, built right.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Makrr — We make it happen.",
+    title: "Makrr | We make it happen.",
     description:
       "A digital studio in Hyderabad. Websites, web apps, AI agents, and content.",
   },

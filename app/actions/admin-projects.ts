@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
 import { put } from "@vercel/blob";
 import {
   createProject as dbCreateProject,
@@ -45,6 +46,7 @@ export async function createProject(formData: FormData) {
     isPublished,
     displayOrder,
   });
+  revalidateTag("projects");
 }
 
 export async function updateProject(id: number, formData: FormData) {
@@ -76,8 +78,10 @@ export async function updateProject(id: number, formData: FormData) {
   };
   if (imageUrl !== undefined) data.imageUrl = imageUrl;
   await dbUpdateProject(id, data);
+  revalidateTag("projects");
 }
 
 export async function deleteProject(id: number) {
   await dbDeleteProject(id);
+  revalidateTag("projects");
 }

@@ -1,4 +1,9 @@
 import "dotenv/config";
+import * as dotenv from "dotenv";
+
+// Load .env.local so POSTGRES_URL is available when running npm run db:seed
+dotenv.config({ path: ".env.local" });
+
 import { getDb } from "../lib/db";
 import { projects, testimonials, siteSettings } from "../lib/db/schema";
 
@@ -90,7 +95,7 @@ const seedTestimonials = [
     clientName: "Arjun M.",
     clientTitle: "Brew & Co.",
     quote:
-      "They delivered our cafe website in 6 days and it looked better than what we expected. Customers actually use the reservation form now — we used to just take calls.",
+      "They delivered our cafe website in 6 days and it looked better than we expected. Customers actually use the reservation form now. We used to just take calls.",
     displayOrder: 0,
   },
   {
@@ -111,7 +116,7 @@ const seedTestimonials = [
     clientName: "Kavya R.",
     clientTitle: "Wallchemy.in",
     quote:
-      "We wanted a site that felt as good as our products. Makrr got it — clean, quick, and easy to update. Enquiries have been much better since we went live.",
+      "We wanted a site that felt as good as our products. Makrr got it: clean, quick, and easy to update. Enquiries have been much better since we went live.",
     displayOrder: 3,
   },
   {
@@ -141,9 +146,9 @@ const defaultSiteSettings = {
 async function seed() {
   const db = getDb();
   console.log("Seeding projects...");
-  await db.insert(projects).values(seedProjects).onConflictDoNothing();
+  await db.insert(projects).values(seedProjects.map((p) => ({ ...p, isPublished: true })));
   console.log("Seeding testimonials...");
-  await db.insert(testimonials).values(seedTestimonials).onConflictDoNothing();
+  await db.insert(testimonials).values(seedTestimonials.map((t) => ({ ...t, isPublished: true })));
   const [existing] = await db.select().from(siteSettings).limit(1);
   if (!existing) {
     console.log("Seeding site settings...");

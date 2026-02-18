@@ -4,6 +4,7 @@ import { useState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
 import { CONTACT_SERVICE_OPTIONS, CONTACT_BUDGET_OPTIONS } from "@/data/constants";
 import type { SocialLinks } from "@/lib/social-links";
+import { MotionIn } from "@/components/MotionIn";
 
 export function Contact({ socialLinks }: { socialLinks: SocialLinks }) {
   const [state, setState] = useState<{
@@ -41,13 +42,16 @@ export function Contact({ socialLinks }: { socialLinks: SocialLinks }) {
   return (
     <section id="contact" className="scroll-mt-24 border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-xl">
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
-          Get in touch
-        </h2>
-        <p className="mt-4 text-[var(--text-muted)]">
-          Share your project details below. We&apos;ll respond within 24 hours.
-        </p>
-        <form
+        <MotionIn variant="up">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
+            Get in touch
+          </h2>
+          <p className="mt-4 text-[var(--text-muted)]">
+            Share your project details below. We&apos;ll respond within 24 hours.
+          </p>
+        </MotionIn>
+        <MotionIn delay={0.1}>
+          <form
           onSubmit={async (e) => {
             e.preventDefault();
             await handleSubmit(new FormData(e.currentTarget));
@@ -150,6 +154,8 @@ export function Contact({ socialLinks }: { socialLinks: SocialLinks }) {
             {isPending ? "Submitting…" : "Submit enquiry"}
           </button>
         </form>
+        </MotionIn>
+        <MotionIn delay={0.15}>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--text-muted)]">
           <a
             href={socialLinks.whatsapp}
@@ -182,6 +188,7 @@ export function Contact({ socialLinks }: { socialLinks: SocialLinks }) {
             LinkedIn
           </a>
         </div>
+        </MotionIn>
       </div>
     </section>
   );

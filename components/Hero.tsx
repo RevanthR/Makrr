@@ -1,6 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0 },
+};
+const transition = { duration: 0.7, ease: [0.22, 0.61, 0.36, 1] };
 
 export function Hero() {
   return (
@@ -27,15 +34,32 @@ export function Hero() {
         }}
       />
       <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <h1 className="font-heading text-4xl font-bold leading-[1.12] tracking-tight text-[var(--text)] md:text-5xl lg:text-6xl xl:text-7xl">
-          Websites, apps, and content — built fast, built right.
-        </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--text-muted)] leading-relaxed md:text-xl">
+        <motion.h1
+          className="font-heading text-4xl font-bold leading-[1.12] tracking-tight text-[var(--text)] md:text-5xl lg:text-6xl xl:text-7xl"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ ...transition, delay: 0.15 }}
+        >
+          Websites, apps, and content. Built fast, built right.
+        </motion.h1>
+        <motion.p
+          className="mt-6 max-w-2xl mx-auto text-lg text-[var(--text-muted)] leading-relaxed md:text-xl"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ ...transition, delay: 0.35 }}
+        >
           Makrr is a digital studio in Hyderabad. We help businesses and
-          creators go from idea to launch — without the long timelines or the
-          guesswork.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          creators go from idea to launch without the long timelines or the guesswork.
+        </motion.p>
+        <motion.div
+          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ ...transition, delay: 0.55 }}
+        >
           <Link
             href="#contact"
             className="w-full rounded-full bg-gradient-to-r from-violet-800 to-violet-600 px-8 py-4 text-center font-semibold text-white shadow-md shadow-violet-900/20 transition hover:from-violet-900 hover:to-violet-700 sm:w-auto"
@@ -48,20 +72,24 @@ export function Hero() {
           >
             See our work ↓
           </Link>
-        </div>
-        <button
+        </motion.div>
+        <motion.button
           type="button"
           onClick={() => {
             document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
           }}
           className="mt-12 inline-flex flex-col items-center gap-2 text-[var(--text-subtle)] transition hover:text-violet-600"
           aria-label="Scroll to content"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ ...transition, delay: 0.8 }}
         >
           <span className="text-xs font-medium">Scroll</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce">
             <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>
-        </button>
+        </motion.button>
       </div>
     </section>
   );

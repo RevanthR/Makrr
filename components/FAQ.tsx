@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FAQ_ITEMS } from "@/data/constants";
+import { MotionIn } from "@/components/MotionIn";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -9,10 +10,12 @@ export function FAQ() {
   return (
     <section className="border-t border-[var(--border)] bg-[var(--bg)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-2xl">
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
-          Common questions
-        </h2>
-        <div className="mt-10 space-y-2">
+        <MotionIn variant="up">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
+            Common questions
+          </h2>
+        </MotionIn>
+        <MotionIn stagger={0.06} className="mt-10 space-y-2">
           {FAQ_ITEMS.map((item, i) => (
             <div
               key={item.q}
@@ -42,7 +45,7 @@ export function FAQ() {
               </div>
             </div>
           ))}
-        </div>
+        </MotionIn>
       </div>
     </section>
   );

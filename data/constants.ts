@@ -9,31 +9,31 @@ export const SERVICES = [
   {
     title: "Websites",
     description:
-      "A site that actually represents your business — fast to load, easy to navigate, and looks the way you always wanted it to.",
+      "A site that actually represents your business: fast to load, easy to navigate, and looks the way you always wanted it to.",
     tags: ["Business Sites", "Landing Pages", "Cafe & Restaurant Sites", "Portfolio Sites"],
   },
   {
     title: "Web Applications",
     description:
-      "Custom-built tools that fit the way you work — whether that's a booking system, a dashboard, or a product you're launching.",
+      "Custom-built tools that fit the way you work. Booking systems, dashboards, or something you're launching: we build it.",
     tags: ["Dashboards", "Booking Systems", "MVPs", "Internal Tools"],
   },
   {
     title: "AI Agents",
     description:
-      "The stuff you do 30 times a day on your phone? We make it happen automatically — replies, scheduling, notifications, all of it.",
+      "The stuff you do 30 times a day on your phone? We make it happen automatically: replies, scheduling, notifications.",
     tags: ["Auto-DM Replies", "WhatsApp Bots", "Social Scheduling", "AI Chatbots"],
   },
   {
     title: "Instagram Content",
     description:
-      "Posts, carousels, and reels that look like you have a full design team — because now you kind of do.",
+      "Posts, carousels, and reels that look like you have a full design team. (Now you kind of do.)",
     tags: ["Posts", "Carousels", "Reels", "Story Templates"],
   },
   {
     title: "Video Editing",
     description:
-      "Send us raw footage, get back polished reels and shorts — edited to keep people watching.",
+      "Send us raw footage, get back polished reels and shorts. Edited to keep people watching.",
     tags: ["Instagram Reels", "YouTube Shorts", "Short-Form Edits"],
   },
   {
@@ -52,21 +52,21 @@ export const PACKAGES = [
       "This is for you if: you need a website and you need it soon.",
     bullets: [
       "A clean, professional website (up to 3 pages)",
-      "Mobile-optimized — looks great on every screen",
+      "Mobile-optimized. Looks great on every screen.",
       "Contact or enquiry form that messages you on WhatsApp",
-      "Google-ready — basic SEO, sitemap, indexing",
+      "Google-ready. Basic SEO, sitemap, indexing.",
       "One round of revisions included",
     ],
     timeline: "Delivered in 5-7 days.",
     tagline:
-      "You'll have a website you're proud to share — in the time it takes most agencies to send a proposal.",
+      "You'll have a website you're proud to share in the time it takes most agencies to send a proposal.",
     cta: "Get Started →",
   },
   {
     name: "Full Presence",
     price: "₹30,000",
     forYouIf:
-      "This is for you if: you want to show up properly — website + content + AI agents.",
+      "This is for you if you want to show up properly: website, content, and your first AI agent.",
     bullets: [
       "Multi-page website (up to 5 pages) with custom design",
       "10 Instagram posts or carousels, designed to match your brand",
@@ -76,20 +76,20 @@ export const PACKAGES = [
     ],
     timeline: "Delivered in 10-14 days.",
     tagline:
-      "Your website, your socials, and your first AI agent — all handled. One invoice, one team.",
+      "Your website, your socials, and your first AI agent. One invoice, one team.",
     cta: "Get Started →",
   },
   {
     name: "Build & Launch",
     price: "₹50,000+",
     forYouIf:
-      "This is for you if: you're building something custom — an app, a tool, an MVP.",
+      "This is for you if you're building something custom: an app, a tool, an MVP.",
     bullets: [
       "Custom web application scoped to your needs",
-      "User-friendly design — no \"it works but looks terrible\"",
+      "User-friendly design. No \"it works but looks terrible\".",
       "Hosting and deployment setup",
       "1 month of post-launch support",
-      "Scope and price locked before we start — no surprises",
+      "Scope and price locked before we start. No surprises.",
     ],
     timeline: "Timeline depends on complexity. We'll tell you exactly how long after scoping.",
     tagline:
@@ -140,7 +140,7 @@ export const PROCESS_STEPS = [
   },
   {
     title: "We get back with a clear plan",
-    description: "Scope, price, and timeline — in writing, within 48 hours.",
+    description: "Scope, price, and timeline in writing within 48 hours.",
   },
   {
     title: "We build. You stay in the loop.",
@@ -160,23 +160,23 @@ export const FAQ_ITEMS = [
   },
   {
     q: "What if I need changes after delivery?",
-    a: "Every project comes with one round of revisions included, plus 2 weeks of support. After that, we're happy to help with changes — just reach out.",
+    a: "Every project comes with one round of revisions plus 2 weeks of support. After that, we're happy to help. Just reach out.",
   },
   {
     q: "Can I update the website myself?",
     a: "Yes. We can set it up so you can change text, photos, and menu items without needing us. We'll walk you through it.",
   },
   {
-    q: "I'm not in Hyderabad — can we work together?",
+    q: "I'm not in Hyderabad. Can we work together?",
     a: "Of course. Most of our work happens over WhatsApp and video calls. We've worked with people across India.",
   },
   {
     q: "How do payments work?",
-    a: "50% to start, 50% on delivery. UPI or bank transfer — whatever is easier for you. For bigger projects, we do milestone-based payments.",
+    a: "50% to start, 50% on delivery. UPI or bank transfer, whatever is easier. For bigger projects we do milestone-based payments.",
   },
   {
     q: "What's an AI agent? Is it relevant for my business?",
-    a: "If you find yourself doing the same task repeatedly — answering DMs, posting content on a schedule, sending follow-up messages — an AI agent can handle that for you. It saves real time, every single day.",
+    a: "If you're doing the same task repeatedly (answering DMs, posting on a schedule, follow-ups), an AI agent can handle it. It saves real time every day.",
   },
   {
     q: "My budget is limited. Can we still work together?",
@@ -186,11 +186,11 @@ export const FAQ_ITEMS = [
 
 export const ABOUT_COPY = {
   paragraph1:
-    "Makrr is a digital studio based in Hyderabad. We started because we kept seeing the same pattern — good businesses stuck with outdated websites, creators spending hours on tasks that should be automated, startups waiting months for a product that should've taken weeks.",
+    "Makrr is a digital studio in Hyderabad. We kept seeing good businesses stuck with outdated sites, creators wasting hours on repeat tasks, and startups waiting months for something that should take weeks. So we started Makrr.",
   paragraph2:
     "We keep the team small on purpose. It means every project gets our full attention, and you always know who's working on your stuff. We're fast because we're focused, and we're good because we care about the details.",
   founderPlaceholder:
-    "Founded by alumni from ISB with over 10 years in tech — we bring real experience to every project, not just templates.",
+    "Founded by ISB alumni with over 10 years in tech. Real experience on every project, not just templates.",
 } as const;
 
 export const CONTACT_SERVICE_OPTIONS = [
