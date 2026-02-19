@@ -1,4 +1,4 @@
-# Makrr — Digital Studio
+# Makrr | Digital Studio
 
 Landing site and admin dashboard for Makrr (Hyderabad). Built with Next.js, Postgres, and Vercel Blob.
 
@@ -73,7 +73,7 @@ After the first deploy, only run `db:push` again when you change the schema (e.g
 
 ## Scripts
 
-- `npm run dev` — development server
-- `npm run build` / `npm run start` — production
-- `npm run db:push` — push Drizzle schema to DB
-- `npm run db:seed` — seed projects and testimonials
+- `npm run dev` – development server
+- `npm run build` / `npm run start` – production
+- `npm run db:push` – push Drizzle schema to DB
+- `npm run db:seed` – seed projects and testimonials

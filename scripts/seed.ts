@@ -9,129 +9,58 @@ import { projects, testimonials, siteSettings } from "../lib/db/schema";
 
 const seedProjects = [
   {
-    projectName: "Brew & Co.",
-    clientName: "Brew & Co.",
-    projectType: "Website",
-    description:
-      "A specialty cafe in Jubilee Hills that went from 'just an Instagram page' to a proper online presence with menu, location, and reservations.",
-    resultMetric: "Online reservations went from 0 to 40+ per week",
-    gradientColors: "from-amber-900/30 to-amber-700/20",
-    displayOrder: 0,
-  },
-  {
-    projectName: "FitWithRiya",
-    clientName: "Riya S.",
-    projectType: "AI Agents + Content",
-    description:
-      "A fitness creator spending hours on repetitive DMs. We automated the common replies and redesigned her Instagram grid.",
-    resultMetric: "Saved 10+ hours a week on DMs alone",
-    gradientColors: "from-emerald-900/30 to-teal-700/20",
-    displayOrder: 1,
-  },
-  {
-    projectName: "QuickHaul",
-    clientName: "QuickHaul",
-    projectType: "Web App",
-    description:
-      "A logistics startup needed an internal dashboard to track shipments. Built and shipped in 3 weeks.",
-    resultMetric: "Replaced 4 spreadsheets with one dashboard",
-    gradientColors: "from-slate-700/30 to-slate-500/20",
-    displayOrder: 2,
-  },
-  {
-    projectName: "The Cumin Trail",
-    clientName: "The Cumin Trail",
-    projectType: "Website + Content",
-    description:
-      "A new restaurant in Banjara Hills launching with zero online presence. We built the site and designed their first month of Instagram content.",
-    resultMetric: "200+ reservations in their opening month",
-    gradientColors: "from-orange-900/30 to-amber-800/20",
-    displayOrder: 3,
-  },
-  {
-    projectName: "NoteNest",
-    clientName: "NoteNest",
-    projectType: "MVP",
-    description:
-      "An EdTech idea that needed a working product to test with real users. We built the MVP and helped launch to an initial waitlist.",
-    resultMetric: "500 signups in the first 2 weeks",
-    gradientColors: "from-violet-900/30 to-indigo-700/20",
-    displayOrder: 4,
-  },
-  {
     projectName: "Wallchemy",
     clientName: "Wallchemy",
     projectType: "Website",
     description:
-      "Wallchemy.in needed a clean, visual site to showcase their wall art and interior decor range. We built a fast, image-led site that reflects their brand and drives enquiries.",
-    resultMetric: "Enquiries up and site loads in under 2 seconds",
+      "Wallchemy is a luxury texture studio that crafts mineral-rich wall finishes for hospitality, retail, and residences. We built wallchemy.in to match their cinematic, editorial brand: curated finish showcases (Velvet Lime, Amber Micro, Silk Concrete), featured projects, and clear paths to book a meeting or reach them on WhatsApp. The site puts surfaces and atmosphere first.",
+    resultMetric: "Live at wallchemy.in. Enquiries and meeting bookings from designers and architects.",
     gradientColors: "from-stone-800/30 to-amber-900/20",
-    displayOrder: 5,
+    displayOrder: 0,
   },
   {
     projectName: "The Interior OS",
     clientName: "interiorOS.com",
     projectType: "Website",
     description:
-      "The Interior OS wanted a professional web presence that matched their design-led offering. We delivered a modern site with clear service pages and a smooth contact flow.",
-    resultMetric: "Clean launch and positive feedback from clients",
+      "The Interior OS needed a web presence that reflected their design-led practice. We delivered interioros.com with clear service pages, project storytelling, and a straightforward contact flow so they can connect with clients and collaborators without friction.",
+    resultMetric: "Professional site that matches the quality of their design work",
     gradientColors: "from-slate-700/30 to-slate-600/20",
-    displayOrder: 6,
+    displayOrder: 1,
   },
   {
     projectName: "Thought Studios",
     clientName: "thoughtstudios.co",
     projectType: "Website",
     description:
-      "Thought Studios needed a portfolio site that felt as considered as their creative work. We built a minimal, responsive site that puts their projects front and centre.",
-    resultMetric: "A site they're proud to send to clients",
+      "Thought Studios works on clarity: decisions, ideas, and strategy for founders and executives. Their site had to feel unhurried and intentional. We built thoughtstudios.co around their philosophy: what they believe, what they explore (Decision & Idea Insights, Business & Startup Perspectives), and Studio notes. Minimal, readable, and true to their voice.",
+    resultMetric: "Live at thoughtstudios.co. A site that reflects their approach.",
     gradientColors: "from-neutral-800/30 to-zinc-700/20",
-    displayOrder: 7,
+    displayOrder: 2,
   },
 ];
 
 const seedTestimonials = [
   {
-    clientName: "Arjun M.",
-    clientTitle: "Brew & Co.",
-    quote:
-      "They delivered our cafe website in 6 days and it looked better than we expected. Customers actually use the reservation form now. We used to just take calls.",
-    displayOrder: 0,
-  },
-  {
-    clientName: "Riya S.",
-    clientTitle: "Fitness Creator",
-    quote:
-      "I needed a portfolio site and help with my Instagram. They handled both, and the auto-reply they set up for my DMs has been a lifesaver.",
-    displayOrder: 1,
-  },
-  {
-    clientName: "Vikram P.",
-    clientTitle: "QuickHaul",
-    quote:
-      "We came to them with a rough idea for an internal tool. Two weeks later, we had a working product. That kind of turnaround is rare.",
-    displayOrder: 2,
-  },
-  {
     clientName: "Kavya R.",
     clientTitle: "Wallchemy.in",
     quote:
-      "We wanted a site that felt as good as our products. Makrr got it: clean, quick, and easy to update. Enquiries have been much better since we went live.",
-    displayOrder: 3,
+      "We needed a site that could carry our brand: mineral finishes, light, texture. Makrr understood that from day one. wallchemy.in is fast, easy to update, and we get serious enquiries from designers and architects. No fluff, just what we needed.",
+    displayOrder: 0,
   },
   {
     clientName: "Aditya S.",
     clientTitle: "The Interior OS",
     quote:
-      "Professional and no fuss. They understood our aesthetic and delivered a site we're happy to share with clients. Would work with them again.",
-    displayOrder: 4,
+      "We wanted a web presence that matched the level of our design work. Makrr delivered exactly that: clear, professional, and straightforward. interioros.com is something we're comfortable sharing with every client.",
+    displayOrder: 1,
   },
   {
     clientName: "Priya N.",
     clientTitle: "Thought Studios",
     quote:
-      "Our new site actually represents our work properly. Fast to load, simple to use, and we get compliments on it. Exactly what we needed.",
-    displayOrder: 5,
+      "Our work is about clarity and intention. We needed a site that felt the same: unrushed, readable, true to what we do. thoughtstudios.co does that. Makrr got our voice and built something we're proud to point people to.",
+    displayOrder: 2,
   },
 ];
 
@@ -145,6 +74,9 @@ const defaultSiteSettings = {
 
 async function seed() {
   const db = getDb();
+  console.log("Clearing existing projects and testimonials...");
+  await db.delete(projects);
+  await db.delete(testimonials);
   console.log("Seeding projects...");
   await db.insert(projects).values(seedProjects.map((p) => ({ ...p, isPublished: true })));
   console.log("Seeding testimonials...");

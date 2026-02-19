@@ -22,7 +22,7 @@ import { ScrollLineAndCubes } from "@/components/ScrollLineAndCubes";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const DATA_TIMEOUT_MS = 5_000;
+const DATA_TIMEOUT_MS = 15_000;
 
 function withTimeout<T>(promise: Promise<T>, ms: number, fallback: T): Promise<T> {
   return Promise.race([
@@ -36,13 +36,13 @@ const getCachedSettings = unstable_cache(getSiteSettings, ["site-settings"], {
   tags: ["site-settings"],
 });
 const getCachedProjects = unstable_cache(getPublishedProjects, ["projects"], {
-  revalidate: 60,
+  revalidate: 10,
   tags: ["projects"],
 });
 const getCachedTestimonials = unstable_cache(
   getPublishedTestimonials,
   ["testimonials"],
-  { revalidate: 60, tags: ["testimonials"] }
+  { revalidate: 10, tags: ["testimonials"] }
 );
 
 const defaultSocialLinks = {
@@ -107,8 +107,8 @@ function HomeContent({
     <>
       <Contact socialLinks={socialLinks} />
       <Work projects={projects} />
-      <AboutAndProcess />
       <Testimonials testimonials={testimonials} />
+      <AboutAndProcess />
       <FAQ />
       <Footer socialLinks={socialLinks} />
     </>

@@ -10,7 +10,7 @@ export function Testimonials({
   testimonials: Testimonial[];
 }) {
   return (
-    <section className="border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
+    <section id="testimonials" className="scroll-mt-24 border-t border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
         <MotionIn variant="up">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-[var(--text)] md:text-4xl">
