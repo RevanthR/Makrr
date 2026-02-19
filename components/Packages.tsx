@@ -5,11 +5,11 @@ import { PACKAGES } from "@/data/constants";
 import { MotionIn } from "@/components/MotionIn";
 import { motion } from "framer-motion";
 
-const PACKAGE_META = [
+const PACKAGE_META: Array<{ label: string; tagline: string; accent: string; featured?: boolean }> = [
   { label: "Starter", tagline: "Website only", accent: "violet" },
   { label: "Most popular", tagline: "Website + content + AI", accent: "emerald", featured: true },
   { label: "Custom build", tagline: "Apps & MVPs", accent: "slate" },
-] as const;
+];
 
 export function Packages() {
   return (

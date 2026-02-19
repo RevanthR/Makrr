@@ -18,8 +18,8 @@ const variants = {
   },
 };
 
-const spring = { type: "spring", stiffness: 200, damping: 26 };
-const smooth = { duration: 0.65, ease: [0.22, 0.61, 0.36, 1] };
+const spring = { type: "spring" as const, stiffness: 200, damping: 26 };
+const smooth = { duration: 0.65, ease: [0.22, 0.61, 0.36, 1] as const };
 
 type MotionInProps = {
   children: React.ReactNode;

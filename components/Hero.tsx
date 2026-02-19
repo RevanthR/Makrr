@@ -7,7 +7,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0 },
 };
-const transition = { duration: 0.7, ease: [0.22, 0.61, 0.36, 1] };
+const transition = { duration: 0.7, ease: [0.22, 0.61, 0.36, 1] as const };
 
 export function Hero() {
   return (
